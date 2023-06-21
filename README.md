@@ -6,7 +6,7 @@
 - [pmdk](https://github.com/pmem/pmdk) (version >= 1.19)
 - [libpmemobj-cpp](https://github.com/pmem/libpmemobj-cpp)
 
-**Note** The code is not reviewed and designed to run in a production system.
+**Note:** The code is not reviewed and designed to run in a production system.
 
 ### Installation on each node
 
