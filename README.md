@@ -1,4 +1,4 @@
-# PMLog
+# FlexLog
 
 **Requirements**
 - [Go](https://golang.org/) (version >= 1.15). If you're using Linux, you can use `./scripts/install_go.sh && source /etc/profile`.
@@ -6,6 +6,7 @@
 - [pmdk](https://github.com/pmem/pmdk) (version >= 1.19)
 - [libpmemobj-cpp](https://github.com/pmem/libpmemobj-cpp)
 
+**Note** The code is not reviewed and designed to run in a production system.
 
 ### Installation on each node
 
@@ -22,7 +23,7 @@ source /etc/profile
 source ~/.profile
 ```
 
-In NixOS we provie you with the `default.nix` file.
+We ran the system in NixOS. We provide you with the `default.nix` file.
 
 
 ### Setup benchmark
