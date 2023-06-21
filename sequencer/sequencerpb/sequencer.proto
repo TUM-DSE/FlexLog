@@ -1,0 +1,23 @@
+syntax = "proto3";
+package sequencer;
+
+option go_package = "github.com/nathanieltornow/PMLog/sequencer/sequencerpb";
+
+service Sequencer {
+  rpc GetOrder(stream OrderRequest) returns (stream OrderResponse);
+}
+
+message OrderRequest {
+  repeated uint64 Tokens = 1;
+  uint32 Color = 2;
+  uint32 OriginColor = 3;
+  uint32 NumOfRecords = 4;
+}
+
+message OrderResponse {
+  repeated uint64 Tokens = 1;
+  uint64 Gsn = 2;
+  uint32 Color = 3;
+  uint32 OriginColor = 4;
+  uint32 NumOfRecords = 5;
+}

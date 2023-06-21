@@ -1,0 +1,39 @@
+syntax = "proto3";
+package data_layer;
+
+service Replica {
+  rpc Append(AppendRequest) returns (AppendResponse);
+  rpc Read(ReadRequest) returns (ReadResponse);
+  rpc Trim(TrimRequest) returns (OK);
+}
+
+message AppendRequest {
+  string record = 1;
+  uint32 color = 2;
+  bool responsible = 3;
+  uint64 token = 4;
+}
+
+message AppendResponse {
+  uint64 gsn = 1;
+  uint64 token = 2;
+}
+
+message ReadRequest {
+  uint64 gsn = 1;
+  uint64 token = 2;
+  uint32 color = 3;
+}
+
+message ReadResponse {
+  uint64 gsn = 1;
+  string record = 2;
+  uint64 token = 3;
+}
+
+message TrimRequest {
+  uint64 gsn = 1;
+  uint32 color = 2;
+}
+
+message OK {}

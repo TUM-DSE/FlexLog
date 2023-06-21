@@ -1,0 +1,41 @@
+syntax = "proto3";
+package shard;
+
+option go_package = "github.com/nathanieltornow/PMLog/shard/shardpb";
+
+service Replica {
+  rpc Append(stream AppendRequest) returns (stream AppendResponse);
+  rpc Read(stream ReadRequest) returns (stream ReadResponse);
+  rpc Trim(TrimRequest) returns (Ok);
+}
+
+message AppendRequest {
+  string record = 1;
+  uint32 color = 2;
+  bool responsible = 3;
+  uint64 token = 4;
+}
+
+message AppendResponse {
+  uint64 gsn = 1;
+  uint64 token = 2;
+}
+
+message ReadRequest {
+  uint64 gsn = 1;
+  uint64 token = 2;
+  uint32 color = 3;
+}
+
+message ReadResponse {
+  uint64 gsn = 1;
+  string record = 2;
+  uint64 token = 3;
+}
+
+message TrimRequest {
+  uint64 gsn = 1;
+  uint32 color = 2;
+}
+
+message Ok {}

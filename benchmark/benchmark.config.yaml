@@ -1,0 +1,10 @@
+endpoints: # the IP of the shards
+  - "christina:4000"
+  - "jack:4000"
+  - "jackson:4000"
+clients : 1 # number of clients per shard
+threads: 1 # number of threads that generate requests per client
+appends: 50 # appends per second for each thread
+reads: 50 # reads per second for each thread
+runtime: 60s # overall runtime
+times: 5
